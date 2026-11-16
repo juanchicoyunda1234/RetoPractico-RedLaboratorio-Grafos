@@ -46,4 +46,5 @@ graph LR
     Switch -->|2 ms| PC1
     Switch -->|2 ms| PC2
     PC2 -->|3 ms| Impresora
-    Servidor -->|5 ms| 
+    Servidor -->|5 ms| PC2
+```
