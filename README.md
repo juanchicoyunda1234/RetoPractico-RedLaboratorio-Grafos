@@ -35,3 +35,15 @@ Representen esta red como un grafo dirigido con multilistas, usando solo `Vertic
 3. **Decidir:** el Switch se dañó. Elimínenlo y verifiquen con `esConexo("Router")`. ¿Qué equipos quedaron aislados? ¿Cuántos enlaces nuevos hacen falta, como mínimo, para reconectarlos? Agréguenlos y comprueben.
 
 **Entrega:** capturas de la consola, el código de `grado(id)` y las respuestas de la parte 3, subir al GitHub.
+
+
+## 🗺️ Red inicial
+
+```mermaid
+graph LR
+    Router -->|1 ms| Switch
+    Router -->|4 ms| Servidor
+    Switch -->|2 ms| PC1
+    Switch -->|2 ms| PC2
+    PC2 -->|3 ms| Impresora
+    Servidor -->|5 ms| 
