@@ -9,6 +9,7 @@ public class Main {
         Grafo red = new Grafo();
         parte1(red);
         parte2(red);
+        parte3(red);
     }
 
     private static void titulo(String texto) {
@@ -56,5 +57,25 @@ public class Main {
         red.mostrar();
         System.out.println();
         imprimirGrados(red);
+    }
+
+    private static void parte3(Grafo red) {
+        titulo("PARTE 3: DECIDIR");
+        System.out.println("eliminarVertice(\"Switch\") -> " + red.eliminarVertice("Switch"));
+        System.out.println();
+        red.mostrar();
+        System.out.println();
+        System.out.println("esConexo(\"Router\") -> " + red.esConexo("Router"));
+        System.out.println("bfs(\"Router\"): " + red.bfs("Router"));
+        System.out.println("Equipos no alcanzables desde Router: " + red.noAlcanzables("Router"));
+        System.out.println();
+        System.out.println("Reconexion con el minimo de enlaces (2):");
+        System.out.println("agregarArista(Router -> PC1, 2) -> " + red.agregarArista("Router", "PC1", 2));
+        System.out.println("agregarArista(Router -> PC2, 2) -> " + red.agregarArista("Router", "PC2", 2));
+        System.out.println();
+        red.mostrar();
+        System.out.println();
+        System.out.println("esConexo(\"Router\") -> " + red.esConexo("Router"));
+        System.out.println("bfs(\"Router\"): " + red.bfs("Router"));
     }
 }
