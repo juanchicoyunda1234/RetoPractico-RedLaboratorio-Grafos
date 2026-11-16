@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Grafo red = new Grafo();
         parte1(red);
+        parte2(red);
     }
 
     private static void titulo(String texto) {
@@ -35,5 +36,25 @@ public class Main {
         System.out.println();
         System.out.println("agregarVertice(\"Router\") otra vez      -> " + red.agregarVertice("Router"));
         System.out.println("agregarArista(PC1 -> Proyector, 3)     -> " + red.agregarArista("PC1", "Proyector", 3));
+    }
+
+    private static void imprimirGrados(Grafo red) {
+        for (String e : EQUIPOS) {
+            System.out.println(String.format("grado(\"%s\")", e) + " ".repeat(14 - e.length()) + "= " + red.grado(e));
+        }
+    }
+
+    private static void parte2(Grafo red) {
+        titulo("PARTE 2: CONSULTAR");
+        System.out.println("bfs(\"Router\"): " + red.bfs("Router"));
+        System.out.println();
+        imprimirGrados(red);
+        System.out.println();
+        System.out.println("modificarLatencia(Router -> Servidor, 2) -> " + red.modificarLatencia("Router", "Servidor", 2));
+        System.out.println("eliminarArista(Servidor -> PC2)          -> " + red.eliminarArista("Servidor", "PC2"));
+        System.out.println();
+        red.mostrar();
+        System.out.println();
+        imprimirGrados(red);
     }
 }
