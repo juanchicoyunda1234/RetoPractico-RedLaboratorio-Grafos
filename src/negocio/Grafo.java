@@ -78,50 +78,6 @@ public class Grafo {
         a.setLatencia(latencia);
         return true;
     }
-    public boolean eliminarArista(String origen, String destino) {
-        Vertice o = buscar(origen);
-        if (o == null) {
-            return false;
-        }
-        Arista actual = o.getPrimeraArista();
-        Arista anterior = null;
-        while (actual != null) {
-            if (actual.getDestino().getId().equals(destino)) {
-                if (anterior == null) {
-                    o.setPrimeraArista(actual.getSiguiente());
-                } else {
-                    anterior.setSiguiente(actual.getSiguiente());
-                }
-                return true;
-            }
-            anterior = actual;
-            actual = actual.getSiguiente();
-        }
-        return false;
-    }
-
-    public boolean eliminarVertice(String id) {
-        Vertice objetivo = buscar(id);
-        if (objetivo == null) {
-            return false;
-        }
-        Vertice actual = primero;
-        while (actual != null) {
-            eliminarArista(actual.getId(), id);
-            actual = actual.getSiguiente();
-        }
-        if (primero == objetivo) {
-            primero = objetivo.getSiguiente();
-        } else {
-            Vertice anterior = primero;
-            while (anterior.getSiguiente() != objetivo) {
-                anterior = anterior.getSiguiente();
-            }
-            anterior.setSiguiente(objetivo.getSiguiente());
-        }
-        cantidad--;
-        return true;
-    }
 
     public boolean eliminarArista(String origen, String destino) {
         Vertice o = buscar(origen);
